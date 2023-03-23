@@ -1,0 +1,21 @@
+parse_git_branch() { 
+	git branch 2> /dev/null | grep '\*' | awk '{$1 = "(Git Branch -"; $2 = $2 ")"; printf("%s %s\n%c", $1,$2,2)}'
+}
+
+if [ "$color_prompt" = yes ]; then
+	PS1='\[\033[01;31m\]$(parse_git_branch)${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='$(parse_git_branch)${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+
+export PATH=$PATH:~/scripts
+alias gcpp="ls -R | grep cpp | sed s/\"main.cpp\"// | tr '\n' ' ' | sed s/\"  \"/\" \"/"
+alias ghpp="ls -R | grep hpp | sed s/\"main.hpp\"// | tr '\n' ' ' | sed s/\"  \"/\" \"/"
+alias class='bash class.sh'
+alias getset='bash getset.sh'
+alias getter='bash get.sh'
+alias setter='bash set.sh'
+alias cpro='bash cpro.sh'
+alias cpri='bash cpri.sh'
+alias cplate='bash template.sh'
+alias dogit='bash gitmsg.sh'
