@@ -9,7 +9,9 @@ else
 fi
 
 export PATH=$PATH:~/scripts
+# Will list all .cpp files (helps for creation of the Makefile when there are too many files and folders), it ignores the main.cpp
 alias gcpp="ls -R | grep cpp | sed s/\"main.cpp\"// | tr '\n' ' ' | sed s/\"  \"/\" \"/"
+# Will list all .hpp files (helps for creation of the Makefile when there are too many files and folders), it ignores the main.hpp
 alias ghpp="ls -R | grep hpp | sed s/\"main.hpp\"// | tr '\n' ' ' | sed s/\"  \"/\" \"/"
 alias class='bash class.sh'
 alias getset='bash getset.sh'
