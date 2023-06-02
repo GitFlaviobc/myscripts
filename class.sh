@@ -1,4 +1,5 @@
 #!/bin/bash
+## class "name class file 1" "name class file 2" "name class file 3" ..............
 for var in "$@"
 do
 	header=$(echo $var | tr 'a-z' 'A-Z')
